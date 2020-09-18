@@ -1,0 +1,50 @@
+variables:
+  MAVEN_OPTS: "-Djava.awt.headless=true -Dmaven.repo.local=./.m2/repository/"
+  DOCKER_DRIVER: overlay
+cache:
+  paths:
+    - ./.m2/repository/
+    - target/
+
+stages:
+  - test
+  - build
+  - image
+
+1-clean:
+  stage: test
+  image: maven:3-jdk-8
+  script:
+    - mvn clean
+2-test:
+  stage: test
+  image: maven:3-jdk-8
+  script:
+    - mvn test
+    
+compile:
+  stage: build
+  image: maven:3-jdk-8
+  script:
+    - mvn package -DskipTests
+  artifacts:
+    paths:
+      - target/
+      
+1-docker_build:
+  stage: image
+  image: docker:19.03.12
+  script:
+    - docker build -t my-docker-image .
+    
+2-docker_push:
+  stage: image
+  image: docker:19.03.12
+  script:
+    - docker image ls 
+
+3-docker_clean:
+  stage: image
+  image: docker:19.03.12
+  script:
+    - docker image ls -a 

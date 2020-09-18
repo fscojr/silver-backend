@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DRV_A4" pageWidth="595" pageHeight="842" columnWidth="483" leftMargin="56" rightMargin="56" topMargin="49" bottomMargin="70" uuid="ccd834e5-e290-4b61-8519-b483455bef0c">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="cm"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="MotivoDatasource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="MotivoReportLocation" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="PertenceDatasource" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<parameter name="PertenceReportLocation" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="LOGO" class="java.io.InputStream"/>
+	<parameter name="NUMERO" class="java.lang.String"/>
+	<parameter name="PLACA" class="java.lang.String"/>
+	<parameter name="MARCA" class="java.lang.String"/>
+	<parameter name="MODELO" class="java.lang.String"/>
+	<parameter name="PAIS" class="java.lang.String"/>
+	<parameter name="RENAVAM" class="java.lang.String"/>
+	<parameter name="COR" class="java.lang.String"/>
+	<parameter name="ESPECIE" class="java.lang.String"/>
+	<parameter name="CHASSI" class="java.lang.String"/>
+	<parameter name="TIPO" class="java.lang.String"/>
+	<parameter name="COMPOSICAO" class="java.lang.String"/>
+	<parameter name="PLACAS_COMBINADAS" class="java.lang.String"/>
+	<parameter name="PROPRIETARIO" class="java.lang.String"/>
+	<parameter name="RESTRICOES" class="java.lang.String"/>
+	<parameter name="IDENTIFICACAO_CONDUTOR" class="java.lang.String"/>
+	<parameter name="TIPO_CONDUTOR" class="java.lang.String"/>
+	<parameter name="CPF_CONDUTOR" class="java.lang.String"/>
+	<parameter name="DATA_RECOLHIMENTO" class="java.util.Date"/>
+	<parameter name="HORA_RECOLHIMENTO" class="java.lang.String"/>
+	<parameter name="MUNICIPIO_RECOLHIMENTO" class="java.lang.String"/>
+	<parameter name="SENTIDO_RECOLHIMENTO" class="java.lang.String"/>
+	<parameter name="LOCAL_RECOLHIMENTO" class="java.lang.String"/>
+	<parameter name="REGIONAL_DE_PATIO" class="java.lang.String"/>
+	<parameter name="NOME_PATIO" class="java.lang.String"/>
+	<parameter name="ENDERECO_PATIO" class="java.lang.String"/>
+	<parameter name="ODOMETRO" class="java.lang.String"/>
+	<parameter name="NIVEL_COMBUSTIVEL" class="java.lang.String"/>
+	<parameter name="ESTADO_PNEUS" class="java.lang.String"/>
+	<parameter name="ESTADO_SOM" class="java.lang.String"/>
+	<parameter name="ESTADO_LATARIA" class="java.lang.String"/>
+	<parameter name="ESTADO_PINTURA" class="java.lang.String"/>
+	<parameter name="EQUIPAMENTOS_FALTANTES" class="java.lang.String"/>
+	<parameter name="OBSERVACOES" class="java.lang.String"/>
+	<parameter name="COMPLEMENTAR" class="java.lang.String"/>
+	<parameter name="AGENTE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="61" splitType="Stretch">
+			<image onErrorType="Blank">
+				<reportElement x="0" y="0" width="50" height="50" uuid="5520264a-e659-4338-9211-fa032dbaef1a"/>
+				<imageExpression><![CDATA[this.getClass().getResourceAsStream("/templates/jasper/logo.jpg")]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="71" y="14" width="170" height="15" uuid="32bd4459-29fd-4953-b690-e73828a655cc"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[POLÍCIA RODOVIÁRIA FEDERAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="0" width="260" height="13" uuid="3e22ff02-14ad-4e58-99a3-072cb0ae3988">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<text><![CDATA[MINISTÉRIO DA JUSTIÇA E SEGURANÇA PÚBLICA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="71" y="28" width="259" height="14" uuid="e50d2a75-40e5-4961-9a20-47a26397a4d3"/>
+				<textElement>
+					<font fontName="DejaVu Sans"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{REGIONAL_DE_PATIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="41" width="50" height="20" uuid="0002e262-cda6-4a6d-a00f-bf1bb0b074d5"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="350" y="41" width="132" height="20" uuid="76b77506-29ca-4ac2-958a-4bbd63554630"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NUMERO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout"/>
+			<staticText>
+				<reportElement x="0" y="0" width="482" height="20" uuid="f7b05a97-d058-49e4-81b2-2501e469b3a2"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DOCUMENTO DE NOTIFICAÇÃO DE RECOLHIMENTO DE VEÍCULO – DRV]]></text>
+			</staticText>
+		</band>
+		<band height="83">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="1b9df6e8-e907-4fe4-bb1a-6db6a23ea99c"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificação do Veículo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="8" y="12" width="80" height="10" uuid="d4fbf611-f42b-478a-bcec-5e31bc8466ca"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Placa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="12" width="100" height="10" uuid="c306d0e1-21c0-4d4d-9f75-9cf2c351abd7"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Marca ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="12" width="100" height="10" uuid="2c02f281-aab2-4200-bf63-faf4d2d39f15"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="12" width="100" height="10" uuid="6d6e3293-a4ea-46ff-93be-dea31238613c"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[País]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="388" y="12" width="92" height="10" uuid="de57d9a6-da73-46ea-9ab1-118820af5192"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Renavam]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="12" y="22" width="76" height="11" uuid="2100bb7b-8ae2-47fd-a30b-16c5fe014c35"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PLACA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="22" width="95" height="11" uuid="b3fd5e22-a7bc-4140-b506-51aefa3b019a">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MARCA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="22" width="95" height="11" uuid="ac482016-5e9b-4679-849b-49c97ebac783">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MODELO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="22" width="96" height="11" uuid="be550188-a24e-44e1-91cc-ca0ff6de418f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PAIS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="22" width="86" height="11" uuid="00b95819-8a5d-49b2-9b35-47a2e127fa2e">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{RENAVAM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="34" width="80" height="10" uuid="02fefa96-3726-4f8f-9d7f-26d1afde7a3e"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Cor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="34" width="100" height="10" uuid="2bbcba3f-cabc-4d20-b5f8-96d08c8d06a3"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Espécie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="34" width="100" height="10" uuid="a6dba624-bca4-4b9e-80b2-3603141e95d9"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Chassi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="288" y="34" width="192" height="10" uuid="5d8ea65c-d6ba-4982-933f-87ccc22fd8fe"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="12" y="44" width="76" height="11" uuid="17fb604b-69c6-4fb9-88a7-3a90ef3a924a">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="44" width="95" height="11" uuid="a2a4f136-2b95-4f1e-9c2f-a3688921f30c">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ESPECIE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="193" y="44" width="95" height="11" uuid="d2e21693-0eda-4671-99c1-16ba991d438d">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CHASSI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="44" width="96" height="11" uuid="0d6b5e5a-731d-4370-9979-cfb95ccd0bd4">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TIPO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="56" width="80" height="10" uuid="eed60995-16b6-4395-98e3-fc60ea6df964"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Composição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="56" width="200" height="10" uuid="88aea31a-a20a-44d9-9793-3826fcd7cbd2"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Placa(s) da(s) Unidade(s) Combinada(s)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="93" y="66" width="195" height="11" uuid="fb2eb2bf-2005-4b3a-ace9-eb895d985f5e">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPOSICAO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="12" y="66" width="76" height="11" uuid="9c4ae3f1-073c-4fb1-b38e-537a07dd7344">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PLACAS_COMBINADAS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="288" y="56" width="192" height="10" uuid="de87ecb1-a8cb-4b59-a52d-9f98daae8caa"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Proprietário]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="292" y="66" width="188" height="11" uuid="0f919916-d0df-445e-830b-c3173cabbbc1">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PROPRIETARIO}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="36" splitType="Stretch">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.FreeLayout"/>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="29598dfb-51ae-44ec-ab15-57322cc6c607"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificação do Condutor]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="12" y="21" width="176" height="11" uuid="c5332c03-f725-44c0-9aa6-0dae9425d746">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TIPO_CONDUTOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="8" y="11" width="180" height="10" uuid="8dd83100-ed96-41ed-8010-4e9df76dc295"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Tipo de Condutor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="11" width="200" height="10" uuid="5584fa49-42e2-4863-834a-391fae656886"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="193" y="21" width="195" height="11" uuid="466f9212-ecae-48df-aed5-c9a9d56225e8">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{IDENTIFICACAO_CONDUTOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="388" y="11" width="92" height="10" uuid="ba6e5e4c-a9c7-43c8-9085-992a8149804c"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="394" y="21" width="86" height="11" uuid="526856c9-1e2d-4c5c-b969-ac2d9f606b7d">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CPF_CONDUTOR}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="37">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="93c70467-4d23-4e1a-889e-d817e0b65f86"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificação do Local, Data e Hora]]></text>
+			</staticText>
+			<frame>
+				<reportElement x="0" y="11" width="482" height="26" uuid="0cc43e80-1c8c-4ce2-9e09-123a7f507be9"/>
+				<staticText>
+					<reportElement x="10" y="0" width="130" height="10" uuid="a69e29d3-8cf0-4a5a-a95d-c3705c4c53ce"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Local]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="14" y="10" width="126" height="11" uuid="34906173-59c3-46c4-9969-f6624845d66e">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{LOCAL_RECOLHIMENTO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="140" y="0" width="60" height="10" uuid="1b80ca9c-a2bc-471e-8314-63d26ebf0ada"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Data]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="144" y="10" width="56" height="11" uuid="9191a7e9-1b53-464c-968f-78348c6366b3">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{DATA_RECOLHIMENTO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="200" y="0" width="44" height="10" uuid="8c2146cd-b817-4c55-8323-74e376e76a40"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Hora]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="205" y="10" width="39" height="11" uuid="b1744675-fa96-4e27-888a-5cca0f236f8e">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{HORA_RECOLHIMENTO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="244" y="0" width="162" height="10" uuid="c55e44b8-b9b6-4718-9500-eb11bf49675a"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Código - Nome do Município]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="249" y="10" width="157" height="11" uuid="9872f4b7-5817-4d47-b1a8-34906766cf7e">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{MUNICIPIO_RECOLHIMENTO}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="406" y="0" width="76" height="10" uuid="e444ef0e-db1b-4df5-838a-3455a021fceb"/>
+					<textElement>
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Sentido]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="410" y="10" width="71" height="11" uuid="8f536bd1-aa74-4033-a135-4a1ef5b102c1">
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement>
+						<font fontName="DejaVu Sans" size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{SENTIDO_RECOLHIMENTO}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+		<band height="30">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="dd4b85f3-c3bb-4364-ba7f-8d87dc93953b"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Motivo do Recolhimento]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="10" y="11" width="340" height="19" uuid="1c21a310-7527-42ba-bf60-32e60206af54"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource ($P{MotivoDatasource}.getData())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{MotivoReportLocation}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="37">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="cfd1d586-3d48-446a-adbd-9bbbfb21fc76"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Veículo Removido Pátio ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="14" y="21" width="176" height="11" uuid="74591c96-cb93-4c74-93f4-dd7890cd2ec2">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NOME_PATIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="11" width="180" height="10" uuid="f7528c74-d1e5-4344-bda3-ba929928aa27"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Nome do Pátio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="190" y="11" width="292" height="10" uuid="b27cd999-fb89-4a95-ae9a-7cc8ef7891cf"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Endereço do Pátio e Telefone]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="195" y="21" width="287" height="11" uuid="4beccff2-b4f0-4bb7-b994-01ade73159af">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ENDERECO_PATIO}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="32">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="b28d123b-6c93-4cfc-88ac-ca1ee86183cd"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informações complementares e providencias necessitas à restituição do veículo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="11" width="462" height="19" uuid="a581e277-135d-4953-b962-34a161f76a47">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{COMPLEMENTAR}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="42">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="ffa7cda4-add6-444e-91c2-dd5053e5f7f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chaves/pertences/documentos]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="10" y="10" width="469" height="29" uuid="33102a6e-02a3-4351-9e0e-61158486659d"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource ($P{PertenceDatasource}.getData())]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{PertenceReportLocation}]]></subreportExpression>
+			</subreport>
+		</band>
+		<band height="56">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="72d6a084-c3ea-462c-8c72-02163e74c661"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado do Veículo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="11" width="130" height="10" uuid="7f858dea-2dee-4671-9377-93ef9f5edfb3"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Odômetro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="14" y="21" width="126" height="11" uuid="a3294fd7-fdfd-4b18-804c-cc4cea01f1c8">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ODOMETRO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="140" y="11" width="110" height="10" uuid="8b6999e5-70e0-4fbf-94d9-1dafb3268a88"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Nível do Combustível]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="11" width="119" height="10" uuid="5e4c2b29-2dbc-4852-a827-378c1a5da8d0"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Estado Geral dos Pneus]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="11" width="113" height="10" uuid="5f3a4593-f53f-4f3e-b13a-f98bb331726a"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Estado Geral do Som]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="144" y="21" width="106" height="11" uuid="214e3390-bd1f-433b-8044-671d168ff809">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NIVEL_COMBUSTIVEL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="21" width="115" height="11" uuid="641edf2c-4ec5-4581-b41f-2cf5a48b7da8">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ESTADO_PNEUS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="21" width="109" height="11" uuid="2c49ca77-a817-4b98-a880-f1197a75806d">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ESTADO_SOM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="10" y="32" width="130" height="10" uuid="c2f415e6-3d4d-4d81-bf2c-7ce4445b0961"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Estado Geral da Lataria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="32" width="110" height="10" uuid="e62d2e51-0d6d-4678-99fe-0a4fb2699310"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Estado Geral da Pintura]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="14" y="42" width="126" height="11" uuid="98c0f27a-ca85-4c15-9f2b-c3e0a10e348f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ESTADO_LATARIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="144" y="42" width="106" height="11" uuid="6caffc44-f246-43ce-ace1-64d3ca865e57">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ESTADO_PINTURA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="250" y="32" width="232" height="10" uuid="14b40c6b-9f8b-4b7e-a4f2-b75450e03d09"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[Equipamento Obrigatórios, faltantes ou em desacordo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="254" y="42" width="227" height="11" uuid="e71d2ac6-e141-40be-aeb9-33c573e3d949">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EQUIPAMENTOS_FALTANTES}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="30">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="76de472e-7eb7-4f08-9477-575da1d798f0"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Observações]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="10" y="11" width="462" height="19" uuid="9e62026b-0991-494f-b187-2dc8c456de69">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="DejaVu Sans" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{OBSERVACOES}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="24">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="483" height="11" backcolor="#CCCCCC" uuid="eff2412d-ad0f-4bed-bbf4-19fe47cdb5c5"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Identificação do Agente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="11" width="483" height="13" uuid="44e7e8c1-37a8-40d3-becc-17d22a2acfdd"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{AGENTE}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band height="49">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="482" height="11" backcolor="#CCCCCC" uuid="308b805b-b8d4-4f51-8097-3acbcac0d130"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Informações Complementares]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="15" width="482" height="32" uuid="b0c42f2b-49a0-4be0-8f41-1bbb92d6d34c"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="8"/>
+				</textElement>
+				<text><![CDATA[NOTIFICA-SE o proprietário ou condutor que a restituição do veículo só ocorrerá mediante prévio pagamento de multas, taxas e despesas com remoção e estada, além de outros encargos previstos na legislação específica e que, se no caso de 60 (sessenta) dias, contado o dia do recolhimento, não realizar a retirada, o veículo poderá ser encaminhado a leilão, nos termos da Lei 9.503/97 e Resolução nº 623/16 – CONTRAN.]]></text>
+			</staticText>
+		</band>
+		<band height="11">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="483" height="11" backcolor="#CCCCCC" uuid="5694ea77-0a6f-4f77-8973-69e573acb1c1"/>
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+		</band>
+		<band height="54">
+			<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.HorizontalRowLayout"/>
+			<frame>
+				<reportElement x="0" y="0" width="242" height="54" uuid="fcbc119d-c006-4d1f-99bc-5d70e71bf1de"/>
+				<rectangle>
+					<reportElement x="50" y="29" width="141" height="1" backcolor="#000000" uuid="f5b1479e-994d-410b-bde3-65944a02c6b0"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="51" y="30" width="140" height="10" uuid="200e83c6-f366-46f6-a6b1-233b553bdf6f"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Condutor/Proprietário do Veículo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="51" y="40" width="140" height="10" uuid="6feca61b-1bbc-43c6-bcc6-50aa1e2a1c58"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[[  ] Recusou-se]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="242" y="0" width="241" height="54" uuid="9f201909-ece8-4265-941c-5ea35682259f"/>
+				<rectangle>
+					<reportElement x="50" y="29" width="141" height="1" backcolor="#000000" uuid="b10b0896-e5a3-4f1c-87d8-0b76c9da9332"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="51" y="30" width="140" height="10" uuid="5702140a-0f30-42e5-aed1-ba6741ef9b1d"/>
+					<textElement textAlignment="Center">
+						<font fontName="DejaVu Sans" size="8"/>
+					</textElement>
+					<text><![CDATA[Responsável pelo Guincho]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
